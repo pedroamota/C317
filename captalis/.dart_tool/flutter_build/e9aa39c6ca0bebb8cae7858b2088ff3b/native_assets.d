@@ -1,0 +1,1 @@
+ /Users/Pedro/Dev/codes/Inatel/C317/captalis/.dart_tool/flutter_build/e9aa39c6ca0bebb8cae7858b2088ff3b/native_assets.yaml: 
