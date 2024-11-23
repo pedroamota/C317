@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 
 class FormWidget extends StatefulWidget {
-  //final GlobalKey<FormState> formKey;
+  final TextEditingController firstSelectionController;
+  final TextEditingController secondSelectionController;
+  final TextEditingController thirdSelectionController;
 
   const FormWidget({
     super.key,
-    //required this.formKey,
+    required this.firstSelectionController,
+    required this.secondSelectionController,
+    required this.thirdSelectionController,
   });
 
   @override
@@ -13,16 +17,9 @@ class FormWidget extends StatefulWidget {
 }
 
 class _FormWidgetState extends State<FormWidget> {
-  final emailController = TextEditingController();
-  final nameController = TextEditingController();
-  final passwordController = TextEditingController();
   int selected1 = -1;
   int selected2 = -1;
   int selected3 = -1;
-
-
-  String? dropdownValueSex;
-
   bool loading = false;
 
   @override
@@ -85,7 +82,7 @@ class _FormWidgetState extends State<FormWidget> {
                           const Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              'A comunicação interna na empresa é clara e eficiente?',
+                              'Você sente que faz um bom uso de suas habilidades a na sua atual função?',
                             ),
                           ),
                           Column(
@@ -98,19 +95,21 @@ class _FormWidgetState extends State<FormWidget> {
                                   return IconButton(
                                     onPressed: () {
                                       setState(() {
+                                        widget.firstSelectionController.text =
+                                            index.toString();
                                         selected1 = index;
                                       });
                                     },
                                     icon: Icon(
                                       selected1 == index
-                                          ? Icons.star
+                                          ? Icons.circle
                                           : Icons
-                                              .star_border_outlined, // Ícone circular para feedback
+                                              .circle_outlined, // Ícone circular para feedback
                                       color: selected1 == index
-                                          ? Colors.yellow
+                                          ? Colors.blue
                                           : Colors.grey, // Cor do botão
                                     ),
-                                    iconSize: 15 // Tamanho dos ícones
+                                    iconSize: 10, // Tamanho dos ícones
                                   );
                                 }),
                               ),
@@ -129,7 +128,7 @@ class _FormWidgetState extends State<FormWidget> {
                           const Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              'A empresa age de forma coerente com os valores que divulga?',
+                              'Sente que esta no controle quando se trata do trabalho que preciso entregar?',
                               style: TextStyle(fontSize: 15),
                             ),
                           ),
@@ -143,19 +142,21 @@ class _FormWidgetState extends State<FormWidget> {
                                   return IconButton(
                                     onPressed: () {
                                       setState(() {
+                                        widget.secondSelectionController.text =
+                                            index.toString();
                                         selected2 = index;
                                       });
                                     },
                                     icon: Icon(
                                       selected2 == index
-                                          ? Icons.star
+                                          ? Icons.circle
                                           : Icons
-                                              .star_border_outlined, // Ícone circular para feedback
+                                              .circle_outlined, // Ícone circular para feedback
                                       color: selected2 == index
-                                          ? Colors.yellow
+                                          ? Colors.blue
                                           : Colors.grey, // Cor do botão
                                     ),
-                                    iconSize: 15 // Tamanho dos ícones
+                                    iconSize: 10, // Tamanho dos ícones
                                   );
                                 }),
                               ),
@@ -163,7 +164,8 @@ class _FormWidgetState extends State<FormWidget> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text('Muito ruim'), // Espaçamento entre o texto e os botões
+                                  Text(
+                                      'Muito ruim'), // Espaçamento entre o texto e os botões
                                   Text('Muito bom'),
                                 ],
                               ) // Espaçamento entre os botões e o texto à direita
@@ -173,7 +175,7 @@ class _FormWidgetState extends State<FormWidget> {
                           const Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              'A empresa promove um ambiente de trabalho saudável e equilibrado?',
+                              'Qual o nivel de respeito que as pessoas são tratadas na empresa? Independente de sua raça, classe ou genero?',
                               style: TextStyle(fontSize: 15),
                             ),
                           ),
@@ -187,19 +189,21 @@ class _FormWidgetState extends State<FormWidget> {
                                   return IconButton(
                                     onPressed: () {
                                       setState(() {
+                                        widget.thirdSelectionController.text =
+                                            index.toString();
                                         selected3 = index;
                                       });
                                     },
                                     icon: Icon(
                                       selected3 == index
-                                          ? Icons.star
+                                          ? Icons.circle
                                           : Icons
-                                              .star_border_outlined, // Ícone circular para feedback
+                                              .circle_outlined, // Ícone circular para feedback
                                       color: selected3 == index
-                                          ? Colors.yellow
+                                          ? Colors.blue
                                           : Colors.grey, // Cor do botão
                                     ),
-                                    iconSize: 15 // Tamanho dos ícones
+                                    iconSize: 10, // Tamanho dos ícones
                                   );
                                 }),
                               ),

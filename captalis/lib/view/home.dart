@@ -1,9 +1,9 @@
+import 'package:captalis/services/metrics_services.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:confetti/confetti.dart';
 import 'steppers/feedback_widget.dart';
 import 'steppers/form_widget.dart';
-import 'steppers/form_widget2.dart';
 import 'steppers/steppers_page.dart';
 import 'package:cool_stepper_reloaded/cool_stepper_reloaded.dart';
 
@@ -17,6 +17,16 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final formKey = GlobalKey<FormState>();
   late ConfettiController _confettiController;
+  final TextEditingController yearsController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController yearsExpController = TextEditingController();
+  final TextEditingController positionController = TextEditingController();
+  final TextEditingController firstSelectionController =
+      TextEditingController();
+  final TextEditingController secondSelectionController =
+      TextEditingController();
+  final TextEditingController thirdSelectionController =
+      TextEditingController();
 
   @override
   void initState() {
@@ -29,6 +39,50 @@ class _MyHomePageState extends State<MyHomePage> {
   void dispose() {
     _confettiController.dispose();
     super.dispose();
+  }
+
+  void onSubmit() async {
+    if (yearsController.text.isNotEmpty &&
+        nameController.text.isNotEmpty &&
+        yearsExpController.text.isNotEmpty &&
+        positionController.text.isNotEmpty &&
+        firstSelectionController.text.isNotEmpty &&
+        secondSelectionController.text.isNotEmpty &&
+        thirdSelectionController.text.isNotEmpty) {
+      MetricsService().saveFeedback(
+        IFeedback(
+          name: nameController.text,
+          age: int.tryParse(yearsController.text) ?? 0,
+          position: positionController.text,
+          yearsExperience: int.tryParse(yearsExpController.text) ?? 0,
+          answers: [
+            IAnswer(
+              question:
+                  'Você sente que faz um bom uso de suas habilidades a na sua atual função?',
+              answer: firstSelectionController.text,
+            ),
+            IAnswer(
+              question:
+                  'Sente que esta no controle quando se trata do trabalho que preciso entregar?',
+              answer: secondSelectionController.text,
+            ),
+            IAnswer(
+              question:
+                  'Qual o nivel de respeito que as pessoas são tratadas na empresa? Independente de sua raça, classe ou genero?',
+              answer: thirdSelectionController.text,
+            ),
+          ],
+        ),
+      );
+      showFeedbackDialog();
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Preencha todos os campos corretamente!"),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
   }
 
   void showFeedbackDialog() {
@@ -127,23 +181,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => StepperWidget(
-                      steps: [
-                        CoolStep(
-                          title: "Informações do colaborador",
-                          content: const FeedbackWidget(),
+                    builder: (context) => StepperWidget(steps: [
+                      CoolStep(
+                        title: "Informações do colaborador",
+                        content: FeedbackWidget(
+                            yearsController: yearsController,
+                            nameController: nameController,
+                            yearsExpController: yearsExpController,
+                            positionController: positionController),
+                      ),
+                      CoolStep(
+                        title: "Informações do colaborador",
+                        content: FormWidget(
+                          firstSelectionController: firstSelectionController,
+                          secondSelectionController: secondSelectionController,
+                          thirdSelectionController: thirdSelectionController,
                         ),
-                        CoolStep(
-                          title: "Informações do colaborador",
-                          content: const FormWidget(),
-                        ),
-                        CoolStep(
-                          title: "Informações do colaborador",
-                          content: const FormWidget2(),
-                        ),
-                      ],
-                      onComplete: showFeedbackDialog,
-                    ),
+                      ),
+                    ], onComplete: onSubmit),
                   ),
                 ),
                 isExtended: true,

@@ -41,46 +41,47 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCwHpElIPjJ6pLCfIYe7clQZbVz-7kZ5Ds',
-    appId: '1:175908739531:web:423476d1a86eda39123e4e',
-    messagingSenderId: '175908739531',
-    projectId: 'captalis-88b24',
-    authDomain: 'captalis-88b24.firebaseapp.com',
-    storageBucket: 'captalis-88b24.firebasestorage.app',
+    apiKey: 'AIzaSyC8WBQWrkzUMuYGRAmKw2-BC_al1b4VMhI',
+    appId: '1:373356233353:web:fc37e9b059863cb1b2fc58',
+    messagingSenderId: '373356233353',
+    projectId: 'captalis-71b58',
+    authDomain: 'captalis-71b58.firebaseapp.com',
+    storageBucket: 'captalis-71b58.firebasestorage.app',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBvm7ujTw5cMEQslmHaibxGC81-7OVxcG4',
-    appId: '1:175908739531:android:dc21eff12410782a123e4e',
-    messagingSenderId: '175908739531',
-    projectId: 'captalis-88b24',
-    storageBucket: 'captalis-88b24.firebasestorage.app',
+    apiKey: 'AIzaSyAVps6Fejv6ZVBMiVHHMF0bk-a0eSioBK8',
+    appId: '1:373356233353:android:2c3fbc577fc131adb2fc58',
+    messagingSenderId: '373356233353',
+    projectId: 'captalis-71b58',
+    storageBucket: 'captalis-71b58.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCQXy0JdQMclh2z234nDg7pB8Myx4UpsBk',
-    appId: '1:175908739531:ios:f24091513338c08e123e4e',
-    messagingSenderId: '175908739531',
-    projectId: 'captalis-88b24',
-    storageBucket: 'captalis-88b24.firebasestorage.app',
+    apiKey: 'AIzaSyAVzZXZ8fEMj_-YZc1fKM5RwLH6gWo2ekw',
+    appId: '1:373356233353:ios:dca91f3c4da2db31b2fc58',
+    messagingSenderId: '373356233353',
+    projectId: 'captalis-71b58',
+    storageBucket: 'captalis-71b58.firebasestorage.app',
     iosBundleId: 'com.example.captalis',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCQXy0JdQMclh2z234nDg7pB8Myx4UpsBk',
-    appId: '1:175908739531:ios:f24091513338c08e123e4e',
-    messagingSenderId: '175908739531',
-    projectId: 'captalis-88b24',
-    storageBucket: 'captalis-88b24.firebasestorage.app',
+    apiKey: 'AIzaSyAVzZXZ8fEMj_-YZc1fKM5RwLH6gWo2ekw',
+    appId: '1:373356233353:ios:dca91f3c4da2db31b2fc58',
+    messagingSenderId: '373356233353',
+    projectId: 'captalis-71b58',
+    storageBucket: 'captalis-71b58.firebasestorage.app',
     iosBundleId: 'com.example.captalis',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCwHpElIPjJ6pLCfIYe7clQZbVz-7kZ5Ds',
-    appId: '1:175908739531:web:7914a7e5bdfcebda123e4e',
-    messagingSenderId: '175908739531',
-    projectId: 'captalis-88b24',
-    authDomain: 'captalis-88b24.firebaseapp.com',
-    storageBucket: 'captalis-88b24.firebasestorage.app',
+    apiKey: 'AIzaSyC8WBQWrkzUMuYGRAmKw2-BC_al1b4VMhI',
+    appId: '1:373356233353:web:77d249232656f693b2fc58',
+    messagingSenderId: '373356233353',
+    projectId: 'captalis-71b58',
+    authDomain: 'captalis-71b58.firebaseapp.com',
+    storageBucket: 'captalis-71b58.firebasestorage.app',
   );
+
 }

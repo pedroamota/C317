@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 
 class FeedbackWidget extends StatefulWidget {
-  //final GlobalKey<FormState> formKey;
+  final TextEditingController yearsController;
+  final TextEditingController nameController;
+  final TextEditingController yearsExpController;
+  final TextEditingController positionController;
 
   const FeedbackWidget({
     super.key,
-    //required this.formKey,
+    required this.yearsController,
+    required this.nameController,
+    required this.yearsExpController,
+    required this.positionController,
   });
 
   @override
@@ -13,11 +19,7 @@ class FeedbackWidget extends StatefulWidget {
 }
 
 class _FeedbackWidgetState extends State<FeedbackWidget> {
-  final emailController = TextEditingController();
-  final nameController = TextEditingController();
-  final passwordController = TextEditingController();
   String? dropdownValueSex;
-
   bool loading = false;
 
   @override
@@ -74,15 +76,15 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SizedBox(
-                            height: size.height * .23,
+                            height: size.height * .2,
                           ),
-                          const SizedBox(height: 80),
+                          const SizedBox(height: 40),
                           const Align(
                             alignment: Alignment.centerLeft,
                             child: Text('Digite seu nome:', style: TextStyle(fontSize: 15),),
                           ),
-                          const SizedBox(height: 20),
                           TextFormField(
+                            controller: widget.nameController,
                             textInputAction: TextInputAction.next,
                             decoration: const InputDecoration(
                               fillColor: Colors.white,
@@ -105,12 +107,40 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                               labelStyle: TextStyle(color: Colors.grey),
                             ),
                           ),
-                          const SizedBox(height: 80),
+                          const SizedBox(height: 40),
+                          const Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text('Digite sua idade:', style: TextStyle(fontSize: 15),),
+                          ),
+                          TextFormField(
+                            controller: widget.yearsController,
+                            textInputAction: TextInputAction.next,
+                            decoration: const InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              enabled: true,
+                              contentPadding:
+                                  EdgeInsets.only(left: 15, right: 15),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.grey),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(25.0),
+                                ),
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(25.0),
+                                ),
+                              ),
+                              labelText: '',
+                              labelStyle: TextStyle(color: Colors.grey),
+                            ),
+                          ),
+                          const SizedBox(height: 40),
                           const Align(
                             alignment: Alignment.centerLeft,
                             child: Text('Selecione seu cargo:', style: TextStyle(fontSize: 15),),
                           ),
-                          const SizedBox(height: 20),
                           SizedBox(
                             width: size.width * .8,
                             child: DropdownButtonFormField<String>(
@@ -135,7 +165,9 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                                 labelText: null,
                                 labelStyle: TextStyle(color: Colors.grey),
                               ),
-                              onChanged: (value) => {dropdownValueSex = value},
+                              onChanged: (value) => {
+                                widget.positionController.text = value!,
+                                dropdownValueSex = value},
                               value: dropdownValueSex,
                               hint: const Text(
                                 'Cargo',
@@ -153,7 +185,36 @@ class _FeedbackWidgetState extends State<FeedbackWidget> {
                               }).toList(),
                             ),
                           ),
-                          const SizedBox(height: 80),
+                          const SizedBox(height: 40),
+                          const Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text('Está a quantos anos na empresa:', style: TextStyle(fontSize: 15),),
+                          ),
+                          TextFormField(
+                            controller: widget.yearsExpController,
+                            textInputAction: TextInputAction.next,
+                            keyboardType: TextInputType.number,
+                            decoration: const InputDecoration(
+                              fillColor: Colors.white,
+                              filled: true,
+                              enabled: true,
+                              contentPadding:
+                                  EdgeInsets.only(left: 15, right: 15),
+                              enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.grey),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(25.0),
+                                ),
+                              ),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(25.0),
+                                ),
+                              ),
+                              labelText: '',
+                              labelStyle: TextStyle(color: Colors.grey),
+                            ),
+                          ),
                         ],
                       ),
                     ),
