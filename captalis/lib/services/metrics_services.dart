@@ -73,7 +73,7 @@ class IFeedback {
 }
 
 class MetricsService{
-  final db = FirebaseFirestore.instance;
+  late final db = FirebaseFirestore.instance;
 
   Future<void> saveFeedback(IFeedback feedback) async {
     try {
