@@ -24,7 +24,7 @@ void main() {
       yearsExpController.dispose();
     });
 
-    testWidgets('should render all components properly', (tester) async {
+    testWidgets('Renderização de componentes', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -49,7 +49,7 @@ void main() {
       expect(find.byType(DropdownButtonFormField<String>), findsOneWidget);
     });
 
-    testWidgets('should update nameController on input', (tester) async {
+    testWidgets('Entra de informações', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -71,7 +71,7 @@ void main() {
       expect(nameController.text, 'John Doe');
     });
 
-    testWidgets('should update positionController on dropdown selection', (tester) async {
+    testWidgets('Update de seleção', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(

@@ -20,7 +20,7 @@ void main() {
       thirdController.dispose();
     });
 
-    testWidgets('should render all components properly', (tester) async {
+    testWidgets('Renderizar todos os componentes', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -42,7 +42,7 @@ void main() {
       expect(find.byType(IconButton), findsNWidgets(18)); // 3 perguntas, 6 botões cada
     });
 
-    testWidgets('should update firstSelectionController on selection', (tester) async {
+    testWidgets('Update de seleção', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
